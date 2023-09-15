@@ -4,34 +4,61 @@
     box-sizing: border-box;
 }
 
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Warna putih dengan transparansi */
+    z-index: -1; /* Tempatkan di bawah elemen lain */
+}
+
 body {
+    
     background-image: url("./graduation.jpg");
     background-size: cover;
     background-position: center center;
     min-height: 100vh;
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
+    /* margin-top: -3rem; */
+    position: relative; /* Tambahkan ini untuk posisi relatif */
 }
 
 h1{
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: normal;
+    margin-top: -8rem;
+    margin-bottom: 0rem;
+    text-align: center;
+}
+
+h2{
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-top: 0rem;
+    text-align: center;
 }
 
 .countdown-container{
     display: flex;
-    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: top;
 }
 
 .big-text{
-    font-size: 3rem;
+    font-size: 6rem;
     font-weight: bold;
     line-height: 1;
-    margin: 0 2rem;
+    margin: 1rem 2rem;
 }
 
 .countdown-el {
@@ -39,6 +66,6 @@ h1{
 }
 
 .countdown-el span{
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 100;
 }
