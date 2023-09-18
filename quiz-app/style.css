@@ -54,6 +54,10 @@ ul li {
     padding: 0.5rem 0;
 }
 
+ul li label {
+    cursor: pointer;
+}
+
 button {
     display: block;
     border: none;

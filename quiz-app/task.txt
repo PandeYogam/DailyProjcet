@@ -1,0 +1,6 @@
+make a quiz with in body with radio button and submit 
+have a few questions and will change after click the submit button
+    after change the question the answer will be reset and the answer will be stored
+    there is a point after choosing the right answer
+the answer is required every question 
+the score will appear after completer the quiz

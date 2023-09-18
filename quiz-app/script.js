@@ -33,40 +33,65 @@ const quizData = [
     },
 ];
 
-const questionEl = document.getElementById("question");
-const a_text = document.getElementById("a_text");
-const b_text = document.getElementById("b_text");
-const c_text = document.getElementById("c_text");
-const d_text = document.getElementById("d_text");
 const submitBtn = document.getElementById("submitBtn");
+const quiz = document.getElementById("quiz");
+
 let currentQuiz = 0;
+let score = 0;
 
 loadQuiz();
 
 function loadQuiz() {
+    deselecetAnswer();
     const currentQuizData = quizData[currentQuiz];
 
-    questionEl.innerHTML = currentQuizData.question;
-    a_text.innerHTML = currentQuizData.a;
-    b_text.innerHTML = currentQuizData.b;
-    c_text.innerHTML = currentQuizData.c;
-    d_text.innerHTML = currentQuizData.d;
+    document.getElementById("question").innerHTML = currentQuizData.question;
+    document.getElementById("a_text").innerHTML = currentQuizData.a;
+    document.getElementById("b_text").innerHTML = currentQuizData.b;
+    document.getElementById("c_text").innerHTML = currentQuizData.c;
+    document.getElementById("d_text").innerHTML = currentQuizData.d;
+}
 
-    // document.getElementById("question").innerHTML = currentQuizData.question;
-    // document.getElementById("a_text").innerHTML = currentQuizData.a;
-    // document.getElementById("b_text").innerHTML = currentQuizData.b;
-    // document.getElementById("c_text").innerHTML = currentQuizData.c;
-    // document.getElementById("d_text").innerHTML = currentQuizData.d;
+function getSelected() {
+    const answerEls = document.querySelectorAll(".answer"); // this will call all element that have class "answer"
+
+    let answer = undefined;
+
+    answerEls.forEach((answerEl) => {
+        if (answerEl.checked) {
+            answer = answerEl.id;
+        }
+    });
+
+    return answer;
+}
+
+function deselecetAnswer() {
+    const answerEls = document.querySelectorAll(".answer"); // this will call all element that have class "answer"
+
+    answerEls.forEach((answerEl) => {
+        answerEl.checked = false;
+    });
 }
 
 submitBtn.addEventListener("click", () => {
-    console.log("submitBtn clicked");
-    console.log(currentQuiz);
+    const answer = getSelected();
 
-    if (currentQuiz < quizData.length) {
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++;
+            // alert("Correct!");
+        } else {
+            // alert("Wrong!");
+        }
+
         currentQuiz++;
-        loadQuiz();
-    } else {
-        alert("Quiz Complete");
+        if (currentQuiz < quizData.length) {
+            loadQuiz();
+        } else {
+            document.getElementById(
+                "quiz"
+            ).innerHTML = `<h2>Jawabannya adalah ${score}/${quizData.length}</h2>`;
+        }
     }
 });
