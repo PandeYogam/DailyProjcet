@@ -5,33 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <title>Quiz App</title>
 </head>
 <body>
+    <h1>GF Questions</h1>
     <div class="quiz-container">
         <div class="quiz-header">
-            <h2>Question Text</h2>
+            <h2 id="question">Question Text</h2>
             <ul>
                 <li>
                     <input type="radio" name="answer" id="a">
-                    <label for="a">Answer</label>
+                    <label id="a_text" for="a">Answer</label>
                 </li>
                 <li>
                     <input type="radio" name="answer" id="b">
-                    <label for="b">Answer</label>
+                    <label id="b_text" for="b">Answer</label>
                 </li>
                 <li>
                     <input type="radio" name="answer" id="c">
-                    <label for="c">Answer</label>
+                    <label id="c_text" for="c">Answer</label>
                 </li>
                 <li>
                     <input type="radio" name="answer" id="d">
-                    <label for="d">Answer</label>
+                    <label id="d_text" for="d">Answer</label>
                 </li>
             </ul>
         </div>
-        <button>Submit</button>
+        <button id="submitBtn">Submit</button>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
